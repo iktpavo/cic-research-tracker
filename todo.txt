@@ -1,0 +1,63 @@
+**  DONE SECTION ** 
+
+    - Implement View for Research, involves show function (--DONE) 
+    - Implement a dedicated View Controller for Viewing Proposals (Proposals attributes from research table) (DONE)
+    - Filter members and research (done)
+    - Implement Publication Crud (done)
+        - Publication -> Authors <- Members (Many-to-Many) (done)
+        
+    - Implement Research Utilization (-- done)
+    - Edit welcomepage.tsx (-- done)
+    -- seeding and factory for across tables (--done)
+    - Search and pagination (-- done)
+  -- Implement Filter on the remaining pages that dont have filters yet (should work alongside pagination and search) (done)
+
+    - Implement Member Card Component with tabs (Info, Profile, Researches {no of completed and ongoing researches}) 
+        that's rendered in Member Index Page
+    - RESEARCH: DOST 6PS FIELDS //
+    - PUBLICATION: PRODUCT CERTIFICATE & PATENT CERTIFICATE FILE UPLOADS ///
+    - RESEARCH: UPDATE FORM FOR DOST 6PS, UPDATE VIEW RESEARCH 
+        - Comprehensive dashboard across all fields
+    - Implement View Member Research where it shows the member and their published, ongoing, and completed researches,
+        and authored published researches
+         involve show function (--TODO / dependent on publication and author crud) (Member-Show...)
+    - Implement DOST6ps in Research migration field, and add its add and edit fields (TODO // easy). 
+- Ivan user roles (TODO/DOING)
+- ivan admin managing users/ user management (if feasible) (--TODO)
+
+//
+
+    -- Implement member show that shows published researches, ongoing researches, and other stuff.
+        -- RESEARCH OVERVDUE STATUS? 
+        - RESEARCH: TEAM CAN BE MULTI SELECT?
+        - DASHBOARD ANALYTICS 
+        - DASHBOARD CAN BE FILTERED BY PROGRAM ANALYTICS
+ -- Final UI improvements b2b saas ahh landing page
+
+**  END DONE SECTION ** 
+
+
+
+** DOING SECTION **
+
+**  END DOING SECTION ** 
+
+
+** TODO SECTION ** 
+
+** END TODO SECTION ** 
+
+
+LATEST VERSION DOCUMENTATION
+// after updating your branch to main's latest...
+- run npm install
+- run php artisan migrate:fresh --seed
+- run php artisan thinker
+- after php artisan tinker paste this and press enter. Then signup and use these credentials. press remember me
+ -- // can modify name, email, and password
+ User::create([
+    'name' => 'Marlou Panungcat',
+    'email' => 'panungbabes@usep.edu.ph',
+    'password' => Hash::make('marloupanungcat'), // choose a strong password
+    'role' => 'admin', // make sure your users table has a 'role' column
+]);
