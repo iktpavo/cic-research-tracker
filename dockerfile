@@ -10,12 +10,21 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
+# Copy all files
 COPY . .
 
+# Install PHP and Node dependencies
 RUN composer install --no-dev --optimize-autoloader
 RUN npm install
 RUN npm run build
 
-EXPOSE 10000
+# Laravel optimization
+RUN php artisan config:cache
+RUN php artisan route:cache
+RUN php artisan view:cache
 
-CMD php artisan serve --host=0.0.0.0 --port=10000
+# Use the port Render provides
+EXPOSE $PORT
+
+# Start Laravel on Render’s port
+CMD php artisan serve --host=0.0.0.0 --port=$PORT
