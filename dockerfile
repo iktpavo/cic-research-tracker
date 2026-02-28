@@ -13,6 +13,9 @@ WORKDIR /var/www
 # Copy all files
 COPY . .
 
+RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
+
 # Install PHP and Node dependencies
 RUN composer install --no-dev --optimize-autoloader
 RUN npm install
@@ -28,3 +31,5 @@ EXPOSE $PORT
 
 # Start Laravel on Render’s port
 CMD php artisan serve --host=0.0.0.0 --port=$PORT
+
+
