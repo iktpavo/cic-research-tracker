@@ -5,6 +5,7 @@ import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+    base: './', // ✅ Add this line for Netlify static hosting
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
